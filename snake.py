@@ -44,3 +44,41 @@ pen.penup()
 pen.hideturtle()
 pen.goto(0, 250)
 pen.write("Score: 0 High score: 0", align='center', font=('Monospace', 24, 'normal'))
+
+# Function
+def group():
+    if head.direction != 'down':
+        head.direction = 'up'
+
+def go_down():
+    if head.direction != 'up':
+        head.direction = 'down'
+
+def go_left():
+    if head.direction != 'right':
+        head.direction = 'left'
+
+def go_right():
+    if head.direction != 'left':
+        head.direction = 'right'
+
+def move():
+    if head.direction == 'up':
+        y = head.ycor()
+        head.sety(y + 20)
+    if head.direction == 'down':
+        y = head.ycor()
+        head.sety(y - 20)
+    if head.direction == 'left':
+        x = head.xcor()
+        head.sety(x - 20)
+    if head.direction == 'right':
+        x = head.xcor()
+        head.sety(x + 20)
+
+# Keyboard bindings
+window.listen()
+window.onkeypress(group, 'w')
+window.onkeypress(go_down, 's')
+window.onkeypress(go_left, 'a')
+window.onkeypress(go_right, 'd')
